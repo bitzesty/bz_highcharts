@@ -1,0 +1,13 @@
+h2 Chart
+
+#planets-chart[
+  data-url=chart_data_charts_path
+]
+
+= form_for :chart,
+           method: :get,
+           html: { id: "change-chart-dataset" },
+           url: chart_data_charts_path(format: :json) do |f|
+  = f.select :dataset,
+             ["first", "second"],
+             include_blank: false

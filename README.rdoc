@@ -1,0 +1,43 @@
+= BzHighcharts
+
+* Provides mechanism to load hicharts via json ajax.
+
+== Usage
+
+=== Include to your Gemfile
+
+    gem "bz_highcharts", git: "git@github.com:bitzesty/bz_highcharts"
+    bundle
+
+=== Load javascripts
+
+    # in application.js.coffee. Highcharts cannot be loaded before jquery
+    #= require bz_highcharts
+
+=== Extend app.Chart and define custom behavior
+
+  * Define element to load chart and set data-url="url for chart json data"
+
+  * Define controller action to respond with json data
+
+  * Define chart behavior by extending app.Chart
+
+  * Load the chart on page load
+
+== Development
+
+  === Check out the application on local
+
+      git clone git@github.com:bitzesty/bz_highcharts.git
+      cd bz_highcharts
+      bundle
+
+      cd bz_highcharts/spec/dummy
+      bundle
+      spring rails s
+
+  Launch at http://localhost:3000
+
+  === Run specs
+
+      rspec
