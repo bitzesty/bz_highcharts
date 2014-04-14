@@ -1,6 +1,6 @@
 = BzHighcharts
 
-* Provides mechanism to load hicharts via json ajax.
+* Provides mechanism to load hicharts via json ajax and wraps charts to classes.
 
 == Usage
 
