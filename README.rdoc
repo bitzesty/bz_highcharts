@@ -6,38 +6,42 @@
 
 === Include to your Gemfile
 
-    gem "bz_highcharts", git: "git@github.com:bitzesty/bz_highcharts"
-    bundle
+  gem "bz_highcharts", git: "git@github.com:bitzesty/bz_highcharts"
+  bundle
 
 === Load javascripts
 
-    # in application.js.coffee. Highcharts cannot be loaded before jquery
-    #= require bz_highcharts
+  # in application.js.coffee. Highcharts cannot be loaded before jquery
+  #= require bz_highcharts
 
 === Extend app.Chart and define custom behavior
 
-  * Define element to load chart and set data-url="url for chart json data"
+* Define element to load chart and set data-url="url for chart json data"
+https://github.com/bitzesty/bz_highcharts/blob/master/spec/dummy/app/views/charts/index.html.slim
 
-  * Define controller action to respond with json data
+* Define controller action to respond with json data
+https://github.com/bitzesty/bz_highcharts/blob/master/spec/dummy/app/controllers/charts_controller.rb
 
-  * Define chart behavior by extending app.Chart
+* Define chart behavior by extending app.Chart
+https://github.com/bitzesty/bz_highcharts/blob/master/spec/dummy/app/assets/javascripts/charts/planets_chart.js.coffee
 
-  * Load the chart on page load
+* Load the chart on page load
+https://github.com/bitzesty/bz_highcharts/blob/master/spec/dummy/app/assets/javascripts/planets_chart.js.coffee
 
 == Development
 
-  === Check out the application on local
+=== Check out the application on local
 
-      git clone git@github.com:bitzesty/bz_highcharts.git
-      cd bz_highcharts
-      bundle
+  git clone git@github.com:bitzesty/bz_highcharts.git
+  cd bz_highcharts
+  bundle
 
-      cd bz_highcharts/spec/dummy
-      bundle
-      spring rails s
+  cd bz_highcharts/spec/dummy
+  bundle
+  spring rails s
 
-  Launch at http://localhost:3000
+Launch at http://localhost:3000
 
-  === Run specs
+=== Run specs
 
-      rspec
+  rspec
