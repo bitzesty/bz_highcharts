@@ -1,3 +1,3 @@
-# check if using IE8
-app.is_ie8_browser ||= ->
-  $("meta[browser='ie8']").length
+# check if using IE
+app.is_ie_browser ||= ->
+  $("meta[browser='ie']").length

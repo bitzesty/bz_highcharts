@@ -7,8 +7,8 @@ $ ->
     # initialize chart
     chart = new app.PlanetsChart(chart_finder)
 
-    # # reload chart to fix IE8 issue if that occurs
-    # if app.is_ie8_browser()
+    # # reload chart to fix IE issue if that occurs
+    # if app.is_ie_browser()
     #   setTimeout ->
     #     chart.reload()
     #   , 2000

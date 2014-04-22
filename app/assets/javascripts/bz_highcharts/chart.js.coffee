@@ -36,7 +36,7 @@ class app.Chart
     #   @reload() if @url?
 
   disableShowLoading: =>
-    # IE8 might not be stable with show loading not disabled
+    # IE might not be stable with show loading not disabled
     false
 
   reload: () =>
@@ -45,8 +45,8 @@ class app.Chart
       type: "GET"
       dataType: "json"
       beforeSend: =>
-        if app.is_ie8_browser() && @disableShowLoading()
-          # cannot use showLoading for IE8 in some cases
+        if app.is_ie_browser() && @disableShowLoading()
+          # cannot use showLoading for IE in some cases
         else
           @chart.showLoading()
       success: @render
@@ -74,7 +74,7 @@ class app.Chart
     @chart = new Highcharts.Chart(new_options)
 
   remove_old_chart: =>
-    # remove in IE8 friendly way
+    # remove in IE friendly way
     if @chart && @chart.options.chart.renderTo
       @chart.destroy()
     else
