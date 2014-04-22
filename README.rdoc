@@ -28,6 +28,12 @@ https://github.com/bitzesty/bz_highcharts/blob/master/spec/dummy/app/assets/java
 * Load the chart on page load
 https://github.com/bitzesty/bz_highcharts/blob/master/spec/dummy/app/assets/javascripts/planets_chart.js.coffee
 
+* For IE8 support need to add meta tag to help identify the browser to application layout header
+
+  <!--[if IE 8]>
+    <meta browser="ie8"/>
+  <![endif]-->
+
 == Development
 
 === Check out the application on local

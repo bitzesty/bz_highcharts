@@ -35,13 +35,20 @@ class app.Chart
     #   @url = $(e.target).data("url")
     #   @reload() if @url?
 
+  disableShowLoading: =>
+    # IE8 might not be stable with show loading not disabled
+    false
+
   reload: () =>
     $.ajax
       url: @url
       type: "GET"
       dataType: "json"
       beforeSend: =>
-        @chart.showLoading()
+        if app.is_ie8_browser() && @disableShowLoading()
+          # cannot use showLoading for IE8 in some cases
+        else
+          @chart.showLoading()
       success: @render
 
   render: (response) =>
@@ -59,11 +66,21 @@ class app.Chart
   update_with_new_options: (options) =>
     # create new chart with new options
     previous_options = @chart.options
+    @remove_old_chart()
+
     # do not polute with old series
     delete(previous_options["series"]) if previous_options["series"]?
     new_options = deepmerge previous_options, options
-    @chart.destroy()
     @chart = new Highcharts.Chart(new_options)
+
+  remove_old_chart: =>
+    # remove in IE8 friendly way
+    if @chart && @chart.options.chart.renderTo
+      @chart.destroy()
+    else
+      # chart not properly initiated, removing it
+      @element.html("")
+      @element.removeAttr("data-highcharts-chart")
 
   # returs data from response
   # where response can be of the following forms:

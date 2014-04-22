@@ -34,12 +34,13 @@ class app.ChartHelpers
     clearTimeout(@resizeTimer) if @resizeTimer?
     @resizeTimer = setTimeout ( ->
       for chart in Highcharts.charts
-        chart_el = $(chart.container)
-        chart_container = chart_el.closest(".js-highcharts").parent()
-        chart_el.hide()
-        chart.setSize(chart_container.width(), chart.containerHeight, false)
-        chart_el.show()
-    ), 50
+        if chart?
+          chart_el = $(chart.container)
+          chart_container = chart_el.closest(".js-highcharts").parent()
+          chart_el.hide()
+          chart.setSize(chart_container.width(), chart.containerHeight, false)
+          chart_el.show()
+    ), 500
 
   # resize charts on window resized
   $(window).resize =>

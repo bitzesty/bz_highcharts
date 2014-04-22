@@ -7,6 +7,12 @@ $ ->
     # initialize chart
     chart = new app.PlanetsChart(chart_finder)
 
+    # # reload chart to fix IE8 issue if that occurs
+    # if app.is_ie8_browser()
+    #   setTimeout ->
+    #     chart.reload()
+    #   , 2000
+
     # submit on select change
     $dataset_form.find("#chart_dataset").change (e) ->
       $dataset_form.submit()
