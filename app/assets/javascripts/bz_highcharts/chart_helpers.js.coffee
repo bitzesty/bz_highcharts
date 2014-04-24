@@ -37,9 +37,10 @@ class app.ChartHelpers
         if chart?
           chart_el = $(chart.container)
           chart_container = chart_el.closest(".js-highcharts").parent()
-          chart_el.hide()
-          chart.setSize(chart_container.width(), chart.containerHeight, false)
-          chart_el.show()
+          if chart_container.width() && chart.containerHeight
+            chart_el.hide()
+            chart.setSize(chart_container.width(), chart.containerHeight, false)
+            chart_el.show()
     ), 500
 
   # resize charts on window resized
